@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.StretchPictureBox = new System.Windows.Forms.PictureBox();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Stretchbutton = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
             this.Applybutton = new System.Windows.Forms.Button();
@@ -40,17 +39,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxMin = new System.Windows.Forms.TextBox();
             this.textBoxMax = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.StretchPictureBox)).BeginInit();
+            this.StretchWindowPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.StretchChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StretchWindowPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // StretchPictureBox
-            // 
-            this.StretchPictureBox.Location = new System.Drawing.Point(37, 26);
-            this.StretchPictureBox.Name = "StretchPictureBox";
-            this.StretchPictureBox.Size = new System.Drawing.Size(530, 573);
-            this.StretchPictureBox.TabIndex = 0;
-            this.StretchPictureBox.TabStop = false;
             // 
             // Stretchbutton
             // 
@@ -84,16 +76,16 @@
             // 
             // StretchChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.StretchChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.StretchChart.Legends.Add(legend2);
-            this.StretchChart.Location = new System.Drawing.Point(608, 192);
+            chartArea3.Name = "ChartArea1";
+            this.StretchChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.StretchChart.Legends.Add(legend3);
+            this.StretchChart.Location = new System.Drawing.Point(773, 225);
             this.StretchChart.Name = "StretchChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.StretchChart.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.StretchChart.Series.Add(series3);
             this.StretchChart.Size = new System.Drawing.Size(436, 407);
             this.StretchChart.TabIndex = 4;
             this.StretchChart.Text = "chart1";
@@ -103,7 +95,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(605, 151);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 21);
+            this.label1.Size = new System.Drawing.Size(70, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Min Value";
             // 
@@ -112,7 +104,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(878, 151);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 21);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Max Value";
             // 
@@ -130,11 +122,21 @@
             this.textBoxMax.Size = new System.Drawing.Size(104, 22);
             this.textBoxMax.TabIndex = 8;
             // 
+            // StretchWindowPictureBox
+            // 
+            this.StretchWindowPictureBox.BackColor = System.Drawing.SystemColors.ControlText;
+            this.StretchWindowPictureBox.Location = new System.Drawing.Point(220, 208);
+            this.StretchWindowPictureBox.Name = "StretchWindowPictureBox";
+            this.StretchWindowPictureBox.Size = new System.Drawing.Size(455, 537);
+            this.StretchWindowPictureBox.TabIndex = 9;
+            this.StretchWindowPictureBox.TabStop = false;
+            // 
             // StretchWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1315, 777);
+            this.ClientSize = new System.Drawing.Size(1612, 910);
+            this.Controls.Add(this.StretchWindowPictureBox);
             this.Controls.Add(this.textBoxMax);
             this.Controls.Add(this.textBoxMin);
             this.Controls.Add(this.label2);
@@ -143,19 +145,16 @@
             this.Controls.Add(this.Applybutton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.Stretchbutton);
-            this.Controls.Add(this.StretchPictureBox);
             this.Name = "StretchWindow";
             this.Text = "StretchWindow";
-            ((System.ComponentModel.ISupportInitialize)(this.StretchPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StretchChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StretchWindowPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox StretchPictureBox;
         private System.Windows.Forms.Button Stretchbutton;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button Applybutton;
@@ -164,5 +163,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxMin;
         private System.Windows.Forms.TextBox textBoxMax;
+        private System.Windows.Forms.PictureBox StretchWindowPictureBox;
     }
 }

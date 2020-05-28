@@ -7,34 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace APO
 {
     public partial class StretchWindow : Form
     {
 
-        private GraphicWindow graphicWindow;
+        private GraphicWindow pictureWindow;
         private System.IO.MemoryStream myStream = new System.IO.MemoryStream();
-        public StretchWindow(GraphicWindow graphicWindow)
+
+        public StretchWindow(GraphicWindow pictureWindow)
         {
             InitializeComponent();
-            this.graphicWindow = graphicWindow;
-            StretchPictureBox.Image = this.graphicWindow.bitmap;
-            StretchPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            StretchPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.graphicWindow.chart.Serializer.Save(myStream);
-
+            this.pictureWindow = pictureWindow;
+            StretchWindowPictureBox.Image = this.pictureWindow.bitmap;
+            StretchWindowPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            StretchWindowPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            StretchWindowPictureBox.Show();          
+            this.pictureWindow.chart.Serializer.Save(myStream);
             StretchChart.Serializer.Load(myStream);
             StretchChart.Show();
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            StretchPictureBox.Image = this.graphicWindow.bitmap; 
+            StretchWindowPictureBox.Image = this.pictureWindow.bitmap; 
 
-            if (this.graphicWindow.Gray)
+            if (this.pictureWindow.Gray)
             {
-                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.graphicWindow.bitmap);
+                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.pictureWindow.bitmap);
                 int[] GrayLut = Utility.HistogramLUT(map);
                 StretchChart.Series.Clear();
                 StretchChart.Series.Add("Gray");
@@ -45,9 +47,9 @@ namespace APO
                 }
             }
 
-            if (this.graphicWindow.RGB)
+            if (this.pictureWindow.RGB)
             {
-                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.graphicWindow.bitmap);
+                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.pictureWindow.bitmap);
                 int[] RedLut = Utility.HistogramLUT(map, "red");
                 int[] GreenLut = Utility.HistogramLUT(map, "green");
                 int[] BlueLut = Utility.HistogramLUT(map, "blue");
@@ -74,7 +76,7 @@ namespace APO
 
         private void Applybutton_Click(object sender, EventArgs e)
         {
-            GraphicWindow window = new GraphicWindow((Bitmap)StretchPictureBox.Image);
+            GraphicWindow window = new GraphicWindow((Bitmap)StretchWindowPictureBox.Image);
             window.Show();
             this.Close();
         }
