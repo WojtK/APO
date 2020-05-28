@@ -39,8 +39,8 @@ namespace APO
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            GraphicWindow window = new GraphicWindow((Bitmap)PosterizeWindowPicture.Image, (Bitmap)defaultpicture);
-            window.Show();
+            GraphicWindow windows = new GraphicWindow((Bitmap)PosterizeWindowPicture.Image, (Bitmap)defaultpicture);
+            windows.Show();
             this.Close();
         }
     }
