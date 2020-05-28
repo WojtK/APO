@@ -290,6 +290,13 @@ namespace APO
             selectiveEqualizationToolStripMenuItem.Enabled = false;
             saveHistogramToolStripMenuItem.Enabled = false;
         }
+
+        private void posterizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PosterizeWindow posterizeWindow = new PosterizeWindow(this);
+            posterizeWindow.Show();
+            this.Close();
+        }
     }
 }
 

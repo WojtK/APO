@@ -295,6 +295,50 @@ namespace APO
             return newBitmap;
         }
 
+        public static Bitmap Posterize(Bitmap bm, int levels)
+        {
+            Bitmap newBm = Utility.ConvertToGreyscale(bm);
+
+            int[] tabValues = new int[levels + 1];
+            int[] tabColors = new int[levels];
+
+            int b = 256 / (levels - 1);
+            for (int i = 0; i < levels - 1; ++i)
+            {
+                tabColors[i] = b * i;
+            }
+            tabColors[tabColors.Length - 1] = 255;
+
+            int a = b / 2;
+            tabValues[0] = 0;
+            tabValues[tabValues.Length - 1] = 255;
+            for (int i = 1; i < levels; ++i)
+            {
+                tabValues[i] = tabColors[i - 1] + a;
+            }
+
+            for (int x = 0; x < newBm.Width; x++)
+            {
+                for (int y = 0; y < newBm.Height; y++)
+                {
+                    Color c = newBm.GetPixel(x, y);
+                    Color newC = new Color();
+                    for (int i = 0; i < levels; ++i)
+                    {
+                        if (c.R > tabValues[i] && c.R <= tabValues[i + 1])
+                        {
+                            newC = Color.FromArgb(255, tabColors[i], tabColors[i], tabColors[i]);
+                            newBm.SetPixel(x, y, newC);
+                        }
+                    }
+
+                }
+
+            }
+
+            return newBm;
+        }
+
         public static Bitmap EqualGray(Bitmap bitmap)
         {
             Bitmap newBitmap = new Bitmap(bitmap);

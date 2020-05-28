@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cloneWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +51,7 @@
             this.P1textBox = new System.Windows.Forms.TextBox();
             this.P2textBox = new System.Windows.Forms.TextBox();
             this.defaultbutton = new System.Windows.Forms.Button();
+            this.posterizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraphicWindowChart)).BeginInit();
@@ -77,10 +78,11 @@
             this.selectiveEqualizationToolStripMenuItem,
             this.stretchToolStripMenuItem,
             this.thresholdingToolStripMenuItem,
-            this.thresholdingGrayLevelsToolStripMenuItem});
+            this.thresholdingGrayLevelsToolStripMenuItem,
+            this.posterizeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1818, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1454, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -176,16 +178,16 @@
             // 
             // GraphicWindowChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.GraphicWindowChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.GraphicWindowChart.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.GraphicWindowChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.GraphicWindowChart.Legends.Add(legend4);
             this.GraphicWindowChart.Location = new System.Drawing.Point(27, 45);
             this.GraphicWindowChart.Name = "GraphicWindowChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.GraphicWindowChart.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.GraphicWindowChart.Series.Add(series4);
             this.GraphicWindowChart.Size = new System.Drawing.Size(778, 555);
             this.GraphicWindowChart.TabIndex = 2;
             this.GraphicWindowChart.Visible = false;
@@ -231,6 +233,13 @@
             this.defaultbutton.Text = "Default picture";
             this.defaultbutton.UseVisualStyleBackColor = true;
             this.defaultbutton.Click += new System.EventHandler(this.defaultbutton_Click);
+            // 
+            // posterizeToolStripMenuItem
+            // 
+            this.posterizeToolStripMenuItem.Name = "posterizeToolStripMenuItem";
+            this.posterizeToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.posterizeToolStripMenuItem.Text = "Posterize";
+            this.posterizeToolStripMenuItem.Click += new System.EventHandler(this.posterizeToolStripMenuItem_Click);
             // 
             // GraphicWindow
             // 
@@ -279,5 +288,6 @@
         private System.Windows.Forms.TextBox P1textBox;
         private System.Windows.Forms.TextBox P2textBox;
         private System.Windows.Forms.Button defaultbutton;
+        private System.Windows.Forms.ToolStripMenuItem posterizeToolStripMenuItem;
     }
 }
