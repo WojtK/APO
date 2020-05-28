@@ -105,7 +105,35 @@ namespace APO
             return d;
         }
 
-        public static Bitmap Threshhold2(Bitmap bm, int threshhold1, int threshhold2)
+        public static Bitmap Thresholding(Bitmap bitmap, int p)
+        {
+            Bitmap newBitmap = new Bitmap(bitmap);
+
+            for (int x = 0; x < bitmap.Width; ++x)
+            {
+                for (int y = 0; y < bitmap.Height; ++y)
+                {
+                    Color newColor = Color.FromArgb(Threshold(newBitmap.GetPixel(x, y).R, p),
+                                                    Threshold(newBitmap.GetPixel(x, y).R, p),
+                                                    Threshold(newBitmap.GetPixel(x, y).R, p));
+                    newBitmap.SetPixel(x, y, newColor);
+                }
+            }
+            return newBitmap;
+        }
+
+        private static int Threshold(int value, int p)
+        {
+            if (value <= p) { return 0; }
+            else { return 255; }
+        }
+        private static int Threshold2(int value, int p1, int p2)
+        {
+            if ((value >= p1) && (value <= p2)) { return value; }
+            else { return 0; }
+        }
+
+        public static Bitmap ThreshholdGrayValue(Bitmap bm, int threshhold1, int threshhold2)
         {
             Bitmap newBm = ConvertToGreyscale(bm);
 
@@ -191,7 +219,6 @@ namespace APO
                 if (D[i] != 0) { D0 = D[i]; }
             }
 
-            // ta tablica to wskażnik przejscia na nowy kolor / wartośc koloru!!! 
 
             Dictionary<int, int> LUT = new Dictionary<int, int>();
 
@@ -253,9 +280,6 @@ namespace APO
                 if (Db[i] != 0) { Db0 = Db[i]; }
             }
 
-
-            // ta tablica to wskażnik przejscia na nowy kolor / wartośc koloru!!! 
-
             Dictionary<int, int> LUTr = new Dictionary<int, int>();
             Dictionary<int, int> LUTg = new Dictionary<int, int>();
             Dictionary<int, int> LUTb = new Dictionary<int, int>();
@@ -298,7 +322,6 @@ namespace APO
             }
             return bitmap;
         }
-        // ############################# Selective #########################################################################
         public static Bitmap SelectiveEqualGray(Bitmap bitmap)
         {
             Bitmap newBitmap = new Bitmap(bitmap);
@@ -325,13 +348,12 @@ namespace APO
                 if (D[i] != 0) { D0 = D[i]; }
             }
 
-            // ta tablica to wskażnik przejscia na nowy kolor / wartośc koloru!!! 
 
             Dictionary<int, int> LUT = new Dictionary<int, int>();
 
             for (int i = 0; i < D.Length; ++i)
             {
-                LUT.Add(i, (int)Math.Ceiling(255 * D[i])); // ew zamiast 5 - 255
+                LUT.Add(i, (int)Math.Ceiling(255 * D[i])); 
             }
 
             for (int x = 0; x < bitmap.Width; ++x)
@@ -388,8 +410,6 @@ namespace APO
             }
 
 
-            // ta tablica to wskażnik przejscia na nowy kolor / wartośc koloru!!! 
-
             Dictionary<int, int> LUTr = new Dictionary<int, int>();
             Dictionary<int, int> LUTg = new Dictionary<int, int>();
             Dictionary<int, int> LUTb = new Dictionary<int, int>();
@@ -412,6 +432,29 @@ namespace APO
             }
             return bitmap;
 
+        }
+
+        public static Bitmap Thresholding2(Bitmap bm, int threshhold1, int threshhold2)
+        {
+            Bitmap newBm = Utility.ConvertToGreyscale(bm);
+
+            for (int x = 0; x < newBm.Width; x++)
+            {
+                for (int y = 0; y < newBm.Height; y++)
+                {
+                    Color c = newBm.GetPixel(x, y);
+                    Color newC = new Color();
+                    if (c.R < threshhold1 || c.R > threshhold2)
+                    {
+                        newC = Color.FromArgb(255, 0, 0, 0);
+                        newBm.SetPixel(x, y, newC);
+                    }
+
+                }
+
+            }
+
+            return newBm;
         }
     }
 }

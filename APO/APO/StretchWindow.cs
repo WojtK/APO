@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace APO
+{
+    public partial class StretchWindow : Form
+    {
+
+        private GraphicWindow graphicWindow;
+        private System.IO.MemoryStream myStream = new System.IO.MemoryStream();
+        public StretchWindow(GraphicWindow graphicWindow)
+        {
+            InitializeComponent();
+            this.graphicWindow = graphicWindow;
+            StretchPictureBox.Image = this.graphicWindow.bitmap;
+            StretchPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            StretchPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.graphicWindow.chart.Serializer.Save(myStream);
+
+            StretchChart.Serializer.Load(myStream);
+            StretchChart.Show();
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            StretchPictureBox.Image = this.graphicWindow.bitmap; 
+
+            if (this.graphicWindow.Gray)
+            {
+                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.graphicWindow.bitmap);
+                int[] GrayLut = Utility.HistogramLUT(map);
+                StretchChart.Series.Clear();
+                StretchChart.Series.Add("Gray");
+                StretchChart.Series["Gray"].Color = Color.Gray;
+                for (int i = 0; i < GrayLut.Length; i++)
+                {
+                    this.StretchChart.Series["Gray"].Points.AddXY(i, GrayLut[i]);
+                }
+            }
+
+            if (this.graphicWindow.RGB)
+            {
+                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.graphicWindow.bitmap);
+                int[] RedLut = Utility.HistogramLUT(map, "red");
+                int[] GreenLut = Utility.HistogramLUT(map, "green");
+                int[] BlueLut = Utility.HistogramLUT(map, "blue");
+
+                StretchChart.Series.Clear();
+                StretchChart.Series.Add("Red");
+                StretchChart.Series.Add("Blue");
+                StretchChart.Series.Add("Green");
+                StretchChart.Series["Red"].Color = Color.Red;
+                StretchChart.Series["Blue"].Color = Color.Blue;
+                StretchChart.Series["Green"].Color = Color.Green;
+
+                for (int i = 0; i < RedLut.Length; i++)
+                {
+                    this.StretchChart.Series["Red"].Points.AddXY(i, RedLut[i]);
+                    this.StretchChart.Series["Green"].Points.AddXY(i, GreenLut[i]);
+                    this.StretchChart.Series["Blue"].Points.AddXY(i, BlueLut[i]);
+                }
+            }
+            
+            textBoxMax.Text = "255";
+            textBoxMin.Text = "1";
+        }
+
+        private void Applybutton_Click(object sender, EventArgs e)
+        {
+            GraphicWindow window = new GraphicWindow((Bitmap)StretchPictureBox.Image);
+            window.Show();
+            this.Close();
+        }
+
+        private void Stretchbutton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

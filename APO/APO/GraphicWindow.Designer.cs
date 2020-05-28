@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cloneWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +47,10 @@
             this.thresholdingGrayLevelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GraphicWindowChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.P1textBox = new System.Windows.Forms.TextBox();
+            this.P2textBox = new System.Windows.Forms.TextBox();
+            this.defaultbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraphicWindowChart)).BeginInit();
@@ -56,7 +60,7 @@
             // 
             this.PictureBox.Location = new System.Drawing.Point(841, 45);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(574, 555);
+            this.PictureBox.Size = new System.Drawing.Size(574, 543);
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
             // 
@@ -76,7 +80,7 @@
             this.thresholdingGrayLevelsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1448, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1454, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -112,6 +116,7 @@
             // 
             // saveHistogramToolStripMenuItem
             // 
+            this.saveHistogramToolStripMenuItem.Enabled = false;
             this.saveHistogramToolStripMenuItem.Name = "saveHistogramToolStripMenuItem";
             this.saveHistogramToolStripMenuItem.Size = new System.Drawing.Size(128, 24);
             this.saveHistogramToolStripMenuItem.Text = "Save Histogram";
@@ -133,6 +138,7 @@
             // 
             // equalizationToolStripMenuItem
             // 
+            this.equalizationToolStripMenuItem.Enabled = false;
             this.equalizationToolStripMenuItem.Name = "equalizationToolStripMenuItem";
             this.equalizationToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.equalizationToolStripMenuItem.Text = "Equalization";
@@ -140,65 +146,108 @@
             // 
             // selectiveEqualizationToolStripMenuItem
             // 
+            this.selectiveEqualizationToolStripMenuItem.Enabled = false;
             this.selectiveEqualizationToolStripMenuItem.Name = "selectiveEqualizationToolStripMenuItem";
             this.selectiveEqualizationToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.selectiveEqualizationToolStripMenuItem.Text = "Selective Equalization";
+            this.selectiveEqualizationToolStripMenuItem.Click += new System.EventHandler(this.selectiveEqualizationToolStripMenuItem_Click);
             // 
             // stretchToolStripMenuItem
             // 
+            this.stretchToolStripMenuItem.Enabled = false;
             this.stretchToolStripMenuItem.Name = "stretchToolStripMenuItem";
             this.stretchToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.stretchToolStripMenuItem.Text = "Stretch";
+            this.stretchToolStripMenuItem.Click += new System.EventHandler(this.stretchToolStripMenuItem_Click);
             // 
             // thresholdingToolStripMenuItem
             // 
             this.thresholdingToolStripMenuItem.Name = "thresholdingToolStripMenuItem";
             this.thresholdingToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
             this.thresholdingToolStripMenuItem.Text = "Thresholding";
+            this.thresholdingToolStripMenuItem.Click += new System.EventHandler(this.thresholdingToolStripMenuItem_Click);
             // 
             // thresholdingGrayLevelsToolStripMenuItem
             // 
             this.thresholdingGrayLevelsToolStripMenuItem.Name = "thresholdingGrayLevelsToolStripMenuItem";
             this.thresholdingGrayLevelsToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.thresholdingGrayLevelsToolStripMenuItem.Text = "Thresholding - gray levels";
+            this.thresholdingGrayLevelsToolStripMenuItem.Click += new System.EventHandler(this.thresholdingGrayLevelsToolStripMenuItem_Click);
             // 
             // GraphicWindowChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.GraphicWindowChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.GraphicWindowChart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.GraphicWindowChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.GraphicWindowChart.Legends.Add(legend3);
             this.GraphicWindowChart.Location = new System.Drawing.Point(27, 45);
             this.GraphicWindowChart.Name = "GraphicWindowChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.GraphicWindowChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.GraphicWindowChart.Series.Add(series3);
             this.GraphicWindowChart.Size = new System.Drawing.Size(778, 555);
             this.GraphicWindowChart.TabIndex = 2;
+            this.GraphicWindowChart.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(854, 633);
+            this.label1.Location = new System.Drawing.Point(848, 616);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "P1:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(848, 662);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "P2:";
+            // 
+            // P1textBox
+            // 
+            this.P1textBox.Location = new System.Drawing.Point(903, 616);
+            this.P1textBox.Name = "P1textBox";
+            this.P1textBox.Size = new System.Drawing.Size(113, 22);
+            this.P1textBox.TabIndex = 5;
+            // 
+            // P2textBox
+            // 
+            this.P2textBox.Location = new System.Drawing.Point(903, 662);
+            this.P2textBox.Name = "P2textBox";
+            this.P2textBox.Size = new System.Drawing.Size(113, 22);
+            this.P2textBox.TabIndex = 6;
+            // 
+            // defaultbutton
+            // 
+            this.defaultbutton.Location = new System.Drawing.Point(27, 626);
+            this.defaultbutton.Name = "defaultbutton";
+            this.defaultbutton.Size = new System.Drawing.Size(191, 70);
+            this.defaultbutton.TabIndex = 7;
+            this.defaultbutton.Text = "Default";
+            this.defaultbutton.UseVisualStyleBackColor = true;
+            this.defaultbutton.Click += new System.EventHandler(this.defaultbutton_Click);
             // 
             // GraphicWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1448, 699);
+            this.ClientSize = new System.Drawing.Size(1454, 708);
+            this.Controls.Add(this.defaultbutton);
+            this.Controls.Add(this.P2textBox);
+            this.Controls.Add(this.P1textBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GraphicWindowChart);
             this.Controls.Add(this.PictureBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GraphicWindow";
-            this.Text = "P1:";
+            this.Text = "GraphicWindow";
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -226,5 +275,9 @@
         private System.Windows.Forms.ToolStripMenuItem thresholdingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thresholdingGrayLevelsToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox P1textBox;
+        private System.Windows.Forms.TextBox P2textBox;
+        private System.Windows.Forms.Button defaultbutton;
     }
 }
