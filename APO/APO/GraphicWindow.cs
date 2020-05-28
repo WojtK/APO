@@ -16,6 +16,8 @@ namespace APO
     {
 
         public Bitmap picture { get; set; }
+
+        public Bitmap defaultpicture { get; set; }
         public Chart chart { get; set; }
         public bool Gray { get; set; }
         public bool RGB { get; set; }
@@ -31,6 +33,21 @@ namespace APO
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             this.picture = picture;
+            defaultpicture = picture;
+            Gray = false;
+            RGB = false;
+        }
+
+        public GraphicWindow(Bitmap picture, Bitmap defaultpicture)
+        {
+            InitializeComponent();
+
+            PictureBox.Image = picture;
+            PictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            this.picture = picture;
+            this.defaultpicture = defaultpicture;
             Gray = false;
             RGB = false;
         }
@@ -81,7 +98,6 @@ namespace APO
             selectiveEqualizationToolStripMenuItem.Enabled = true;
             saveHistogramToolStripMenuItem.Enabled = true;
             grayToolStripMenuItem.Enabled = true;
-            stretchToolStripMenuItem.Enabled = true;
             stretchToolStripMenuItem.Enabled = true;
             this.chart = GraphicWindowChart;
             RGB = true;
@@ -265,10 +281,14 @@ namespace APO
 
         private void defaultbutton_Click(object sender, EventArgs e)
         {
-            PictureBox.Image = this.picture;
+            PictureBox.Image = this.defaultpicture;
             GraphicWindowChart.Series.Clear();
             grayToolStripMenuItem.Enabled = true;
             rGBToolStripMenuItem.Enabled = true;
+            stretchToolStripMenuItem.Enabled = false;
+            equalizationToolStripMenuItem.Enabled = false;
+            selectiveEqualizationToolStripMenuItem.Enabled = false;
+            saveHistogramToolStripMenuItem.Enabled = false;
         }
     }
 }
