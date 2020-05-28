@@ -15,7 +15,7 @@ namespace APO
     public partial class GraphicWindow : Form
     {
 
-        public Bitmap bitmap { get; set; }
+        public Bitmap picture { get; set; }
         public Chart chart { get; set; }
         public bool Gray { get; set; }
         public bool RGB { get; set; }
@@ -30,7 +30,7 @@ namespace APO
             PictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            this.bitmap = bitmap;
+            this.picture = picture;
             Gray = false;
             RGB = false;
         }
@@ -265,7 +265,7 @@ namespace APO
 
         private void defaultbutton_Click(object sender, EventArgs e)
         {
-            PictureBox.Image = this.bitmap;
+            PictureBox.Image = this.picture;
             GraphicWindowChart.Series.Clear();
             grayToolStripMenuItem.Enabled = true;
             rGBToolStripMenuItem.Enabled = true;

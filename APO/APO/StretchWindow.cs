@@ -21,10 +21,14 @@ namespace APO
         {
             InitializeComponent();
             this.pictureWindow = pictureWindow;
-            StretchWindowPictureBox.Image = this.pictureWindow.bitmap;
+            StretchWindowPictureBox.Image = this.pictureWindow.picture;
             StretchWindowPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             StretchWindowPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            StretchWindowPictureBox.Show();          
+            StretchWindowPictureBox.Show();
+
+            textBoxMax.Text = "255";
+            textBoxMin.Text = "1";
+
             this.pictureWindow.chart.Serializer.Save(myStream);
             StretchChart.Serializer.Load(myStream);
             StretchChart.Show();
@@ -32,11 +36,11 @@ namespace APO
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            StretchWindowPictureBox.Image = this.pictureWindow.bitmap; 
+            StretchWindowPictureBox.Image = this.pictureWindow.picture;
 
             if (this.pictureWindow.Gray)
             {
-                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.pictureWindow.bitmap);
+                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.pictureWindow.picture);
                 int[] GrayLut = Utility.HistogramLUT(map);
                 StretchChart.Series.Clear();
                 StretchChart.Series.Add("Gray");
@@ -49,7 +53,7 @@ namespace APO
 
             if (this.pictureWindow.RGB)
             {
-                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.pictureWindow.bitmap);
+                Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)this.pictureWindow.picture);
                 int[] RedLut = Utility.HistogramLUT(map, "red");
                 int[] GreenLut = Utility.HistogramLUT(map, "green");
                 int[] BlueLut = Utility.HistogramLUT(map, "blue");
@@ -69,7 +73,7 @@ namespace APO
                     this.StretchChart.Series["Blue"].Points.AddXY(i, BlueLut[i]);
                 }
             }
-            
+
             textBoxMax.Text = "255";
             textBoxMin.Text = "1";
         }

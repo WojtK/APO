@@ -17,6 +17,7 @@ namespace APO
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new APO());
+            //Application.Run(new StretchWindow());
         }
     }
 }
