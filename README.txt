@@ -1,4 +1,6 @@
-Ścieżka do pliku exe z bieżącego katalogu APO\APO\bin\Debug\APO.exe 
+﻿Ścieżka do pliku exe z bieżącego katalogu APO\APO\bin\Debug\APO.exe 
+
+!!! W przypadku niedziałania czasami niektórych przycisków (głównie Apply w okienku PosterizeWindow) należy uruchomić aplikację od nowa, powinno pomóc !!!
 
 LABORATORIUM nr 1 i 2
 
