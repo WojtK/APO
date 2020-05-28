@@ -29,7 +29,7 @@ namespace APO
             }
             catch
             {
-                MessageBox.Show("You have not selected anything \n You must select a picture");
+                MessageBox.Show("You have not selected anything \nYou must select a picture");
             }
         }
     }
