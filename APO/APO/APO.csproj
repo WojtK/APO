@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About programWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About programWindow.Designer.cs">
+      <DependentUpon>About programWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="APO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
       <DependentUpon>StretchWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="About programWindow.resx">
+      <DependentUpon>About programWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="APO.resx">
       <DependentUpon>APO.cs</DependentUpon>
     </EmbeddedResource>

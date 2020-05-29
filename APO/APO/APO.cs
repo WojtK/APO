@@ -32,5 +32,11 @@ namespace APO
                 MessageBox.Show("You have not selected anything \nYou must select a picture");
             }
         }
+
+        private void aboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About_programWindow info = new About_programWindow();
+            info.Show();
+        }
     }
 }

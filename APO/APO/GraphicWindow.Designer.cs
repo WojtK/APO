@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cloneWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,13 +45,13 @@
             this.stretchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thresholdingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thresholdingGrayLevelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.posterizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GraphicWindowChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.P1textBox = new System.Windows.Forms.TextBox();
             this.P2textBox = new System.Windows.Forms.TextBox();
             this.defaultbutton = new System.Windows.Forms.Button();
-            this.posterizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraphicWindowChart)).BeginInit();
@@ -82,14 +82,14 @@
             this.posterizeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1454, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1492, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // cloneWindowToolStripMenuItem
             // 
             this.cloneWindowToolStripMenuItem.Name = "cloneWindowToolStripMenuItem";
-            this.cloneWindowToolStripMenuItem.Size = new System.Drawing.Size(120, 34);
+            this.cloneWindowToolStripMenuItem.Size = new System.Drawing.Size(120, 24);
             this.cloneWindowToolStripMenuItem.Text = "Clone Window";
             this.cloneWindowToolStripMenuItem.Click += new System.EventHandler(this.cloneWindowToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             this.rGBToolStripMenuItem,
             this.grayToolStripMenuItem});
             this.histogramToolStripMenuItem.Name = "histogramToolStripMenuItem";
-            this.histogramToolStripMenuItem.Size = new System.Drawing.Size(93, 34);
+            this.histogramToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.histogramToolStripMenuItem.Text = "Histogram";
             // 
             // rGBToolStripMenuItem
@@ -120,21 +120,21 @@
             // 
             this.saveHistogramToolStripMenuItem.Enabled = false;
             this.saveHistogramToolStripMenuItem.Name = "saveHistogramToolStripMenuItem";
-            this.saveHistogramToolStripMenuItem.Size = new System.Drawing.Size(128, 34);
+            this.saveHistogramToolStripMenuItem.Size = new System.Drawing.Size(128, 24);
             this.saveHistogramToolStripMenuItem.Text = "Save Histogram";
             this.saveHistogramToolStripMenuItem.Click += new System.EventHandler(this.saveHistogramToolStripMenuItem_Click_1);
             // 
             // savePictureToolStripMenuItem
             // 
             this.savePictureToolStripMenuItem.Name = "savePictureToolStripMenuItem";
-            this.savePictureToolStripMenuItem.Size = new System.Drawing.Size(103, 34);
+            this.savePictureToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
             this.savePictureToolStripMenuItem.Text = "Save Picture";
             this.savePictureToolStripMenuItem.Click += new System.EventHandler(this.savePictureToolStripMenuItem_Click);
             // 
             // negationToolStripMenuItem
             // 
             this.negationToolStripMenuItem.Name = "negationToolStripMenuItem";
-            this.negationToolStripMenuItem.Size = new System.Drawing.Size(85, 34);
+            this.negationToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.negationToolStripMenuItem.Text = "Negation";
             this.negationToolStripMenuItem.Click += new System.EventHandler(this.negationToolStripMenuItem_Click);
             // 
@@ -142,7 +142,7 @@
             // 
             this.equalizationToolStripMenuItem.Enabled = false;
             this.equalizationToolStripMenuItem.Name = "equalizationToolStripMenuItem";
-            this.equalizationToolStripMenuItem.Size = new System.Drawing.Size(105, 34);
+            this.equalizationToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
             this.equalizationToolStripMenuItem.Text = "Equalization";
             this.equalizationToolStripMenuItem.Click += new System.EventHandler(this.equalizationToolStripMenuItem_Click);
             // 
@@ -150,7 +150,7 @@
             // 
             this.selectiveEqualizationToolStripMenuItem.Enabled = false;
             this.selectiveEqualizationToolStripMenuItem.Name = "selectiveEqualizationToolStripMenuItem";
-            this.selectiveEqualizationToolStripMenuItem.Size = new System.Drawing.Size(168, 34);
+            this.selectiveEqualizationToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
             this.selectiveEqualizationToolStripMenuItem.Text = "Selective Equalization";
             this.selectiveEqualizationToolStripMenuItem.Click += new System.EventHandler(this.selectiveEqualizationToolStripMenuItem_Click);
             // 
@@ -158,36 +158,43 @@
             // 
             this.stretchToolStripMenuItem.Enabled = false;
             this.stretchToolStripMenuItem.Name = "stretchToolStripMenuItem";
-            this.stretchToolStripMenuItem.Size = new System.Drawing.Size(69, 34);
+            this.stretchToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.stretchToolStripMenuItem.Text = "Stretch";
             this.stretchToolStripMenuItem.Click += new System.EventHandler(this.stretchToolStripMenuItem_Click);
             // 
             // thresholdingToolStripMenuItem
             // 
             this.thresholdingToolStripMenuItem.Name = "thresholdingToolStripMenuItem";
-            this.thresholdingToolStripMenuItem.Size = new System.Drawing.Size(109, 34);
+            this.thresholdingToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
             this.thresholdingToolStripMenuItem.Text = "Thresholding";
             this.thresholdingToolStripMenuItem.Click += new System.EventHandler(this.thresholdingToolStripMenuItem_Click);
             // 
             // thresholdingGrayLevelsToolStripMenuItem
             // 
             this.thresholdingGrayLevelsToolStripMenuItem.Name = "thresholdingGrayLevelsToolStripMenuItem";
-            this.thresholdingGrayLevelsToolStripMenuItem.Size = new System.Drawing.Size(193, 34);
+            this.thresholdingGrayLevelsToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.thresholdingGrayLevelsToolStripMenuItem.Text = "Thresholding - gray levels";
             this.thresholdingGrayLevelsToolStripMenuItem.Click += new System.EventHandler(this.thresholdingGrayLevelsToolStripMenuItem_Click);
             // 
+            // posterizeToolStripMenuItem
+            // 
+            this.posterizeToolStripMenuItem.Name = "posterizeToolStripMenuItem";
+            this.posterizeToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.posterizeToolStripMenuItem.Text = "Posterize";
+            this.posterizeToolStripMenuItem.Click += new System.EventHandler(this.posterizeToolStripMenuItem_Click);
+            // 
             // GraphicWindowChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.GraphicWindowChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.GraphicWindowChart.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.GraphicWindowChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.GraphicWindowChart.Legends.Add(legend1);
             this.GraphicWindowChart.Location = new System.Drawing.Point(27, 45);
             this.GraphicWindowChart.Name = "GraphicWindowChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.GraphicWindowChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.GraphicWindowChart.Series.Add(series1);
             this.GraphicWindowChart.Size = new System.Drawing.Size(778, 555);
             this.GraphicWindowChart.TabIndex = 2;
             this.GraphicWindowChart.Visible = false;
@@ -197,7 +204,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(848, 616);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 21);
+            this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Lower threshold:";
             // 
@@ -206,7 +213,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(848, 662);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 21);
+            this.label2.Size = new System.Drawing.Size(114, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Upper threshold:";
             // 
@@ -234,18 +241,11 @@
             this.defaultbutton.UseVisualStyleBackColor = true;
             this.defaultbutton.Click += new System.EventHandler(this.defaultbutton_Click);
             // 
-            // posterizeToolStripMenuItem
-            // 
-            this.posterizeToolStripMenuItem.Name = "posterizeToolStripMenuItem";
-            this.posterizeToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
-            this.posterizeToolStripMenuItem.Text = "Posterize";
-            this.posterizeToolStripMenuItem.Click += new System.EventHandler(this.posterizeToolStripMenuItem_Click);
-            // 
             // GraphicWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1454, 708);
+            this.ClientSize = new System.Drawing.Size(1492, 708);
             this.Controls.Add(this.defaultbutton);
             this.Controls.Add(this.P2textBox);
             this.Controls.Add(this.P1textBox);
