@@ -21,3 +21,10 @@ Klonowanie obrazu (duplikowanie) - Clone Window
 Zapisywanie histogramu i obrazu - Save Histogram/Picture
 Resetowanie zmian w grafice (przy pomocy button-ów Reset itp) - uwaga, działa do jednej zmiany
 (do jednego nowego okienka wstecz)
+
+Laboratorium 3 
+
+Główne:
+
+Dodatkowe:
+-Dodano okno "About program" zawierające informacje o autorze programu itp
