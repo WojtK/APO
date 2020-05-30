@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Windows.Forms.DataVisualization.Charting;
+using Emgu.CV;
+using Emgu.CV.Structure;
+using System.IO;
 
 namespace APO
 {
@@ -383,6 +386,38 @@ namespace APO
             }
             return newBitmap;
         }
+
+        public static string SaveBmpTmp(Bitmap bmp)
+        {
+            string fileName = Path.GetTempPath() + Guid.NewGuid().ToString() + ".bmp";
+            FileStream stream = File.Create(fileName);
+            bmp.Save(stream, System.Drawing.Imaging.ImageFormat.Bmp);
+            stream.Close();
+            return fileName;
+        }
+
+        public static Bitmap BmpFromFile(string path)
+        {
+            var bytes = File.ReadAllBytes(path);
+            var ms = new MemoryStream(bytes);
+            var img = (Bitmap)Image.FromStream(ms);
+            return img;
+        }
+        public static Bitmap XOR(Bitmap bmp1, Bitmap bmp2)
+        {
+            string file1 = SaveBmpTmp(bmp1),
+                   file2 = SaveBmpTmp(bmp2);
+            Image<Bgr, Byte> img = new Image<Bgr, Byte>(file1),
+                             img2 = new Image<Bgr, Byte>(file2);
+            img2 = img2.Resize(img.Width, img.Height, Emgu.CV.CvEnum.Inter.Linear);
+            img = img.Xor(img2);
+            img.Save(file1);
+            Bitmap tmpBmp = BmpFromFile(file1);
+            File.Delete(file1);
+            File.Delete(file2);
+            return tmpBmp;
+        }
+
 
         public static Bitmap EqualRGB(Bitmap bitmap)
         {

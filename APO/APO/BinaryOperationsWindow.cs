@@ -19,9 +19,12 @@ namespace APO
 
         private Image<Bgra, byte> PictureA;
         private Image<Bgra, byte> PictureB;
+        Mat dstimg = new Mat();
         public BinaryOperationsWindow()
         {
             InitializeComponent();
+            pictureBoxB.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBoxB.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void buttonA_Click(object sender, EventArgs e)
@@ -31,11 +34,13 @@ namespace APO
 
             try
             {
+                
                 pictureBoxA.Image = new Bitmap(dialog.FileName);
                 Bitmap bitmapA = (Bitmap)pictureBoxA.Image;
                 pictureBoxA.SizeMode = PictureBoxSizeMode.CenterImage;
                 pictureBoxA.SizeMode = PictureBoxSizeMode.StretchImage;
-             //   this.PictureA = bitmapA.ToImage<Bgra, byte>();
+                this.PictureA = bitmapA.ToImage<Bgra, byte>();
+                chartA.Series.Clear();
                 Histogram_PictureA();
                 chartA.Visible = true;
             }
@@ -53,9 +58,9 @@ namespace APO
             {
                 pictureBoxB.Image = new Bitmap(dialog.FileName);
                 Bitmap bitmapB = (Bitmap)pictureBoxB.Image;
-                pictureBoxB.SizeMode = PictureBoxSizeMode.CenterImage;
-                pictureBoxB.SizeMode = PictureBoxSizeMode.StretchImage;
-              //  this.PictureB = bitmapB.ToImage<Bgra, byte>();
+                
+                this.PictureB = bitmapB.ToImage<Bgra, byte>();
+                chartB.Series.Clear();
                 Histogram_PictureB();
                 chartB.Visible = true;
             }
@@ -78,6 +83,7 @@ namespace APO
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Mat dstimg = new Mat();
             if (pictureBoxA.Image == null)
             {
                 MessageBox.Show("Select picture A.");
@@ -88,16 +94,17 @@ namespace APO
                 MessageBox.Show("Select picture B.");
                 return;
             }
-
             Image<Bgra, byte> resultImage = new Image<Bgra, byte>(ResultPictureBox.Size.Width, ResultPictureBox.Size.Height);
-                Image<Bgra, byte> imageBresized = new Image<Bgra, byte>(PictureA.Size.Width, PictureA.Size.Height);
-                CvInvoke.Resize(PictureB, imageBresized, PictureA.Size);
-                resultImage = PictureA.Add(imageBresized, null);
-              //  ResultPictureBox.Image = resultImage.ToBitmap();
-                Histogram_ResultPicture();
-                chartResult.Visible = true;
-                saveResultToolStripMenuItem.Enabled = true;
-                return;
+            Image<Bgra, byte> imageBresized = new Image<Bgra, byte>(PictureA.Size.Width, PictureA.Size.Height);
+            CvInvoke.Resize(PictureB, imageBresized, PictureA.Size);
+            resultImage = PictureA.Add(imageBresized, null);
+            ResultPictureBox.Image = resultImage.ToBitmap();
+            chartResult.Series.Clear();
+            Histogram_ResultPicture();
+            chartResult.Visible = true;
+            label3.Visible = true;
+            saveResultToolStripMenuItem.Enabled = true;
+            return;
         }
 
         private void blendToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,8 +120,16 @@ namespace APO
                 return;
             }
 
-
+            Image<Bgra, byte> resultImage = new Image<Bgra, byte>(ResultPictureBox.Size.Width, ResultPictureBox.Size.Height);
+            Image<Bgra, byte> imageBresized = new Image<Bgra, byte>(PictureA.Size.Width, PictureA.Size.Height);
+            CvInvoke.Resize(PictureB, imageBresized, PictureA.Size);
+            resultImage = PictureA.AddWeighted(imageBresized, 0.5, 1 - 0.5, 0);
+            ResultPictureBox.Image = resultImage.ToBitmap();
+            chartResult.Series.Clear();
+            Histogram_ResultPicture();
             chartResult.Visible = true;
+            label3.Visible = true;
+            ResultPictureBox.Visible = true;
             saveResultToolStripMenuItem.Enabled = true;
         }
 
@@ -131,10 +146,16 @@ namespace APO
                 return;
             }
 
-
-
-
+            Image<Bgra, byte> resultImage = new Image<Bgra, byte>(ResultPictureBox.Size.Width, ResultPictureBox.Size.Height);
+            Image<Bgra, byte> imageBresized = new Image<Bgra, byte>(PictureA.Size.Width, PictureA.Size.Height);
+            CvInvoke.Resize(PictureB, imageBresized, PictureA.Size);
+            resultImage = PictureA.And(imageBresized, null);
+            ResultPictureBox.Image = resultImage.ToBitmap();
+            chartResult.Series.Clear();
+            Histogram_ResultPicture();
             chartResult.Visible = true;
+            label3.Visible = true;
+            ResultPictureBox.Visible = true;
             saveResultToolStripMenuItem.Enabled = true;
         }
 
@@ -151,8 +172,16 @@ namespace APO
                 return;
             }
 
-
+            Image<Bgra, byte> resultImage = new Image<Bgra, byte>(ResultPictureBox.Size.Width, ResultPictureBox.Size.Height);
+            Image<Bgra, byte> imageBresized = new Image<Bgra, byte>(PictureA.Size.Width, PictureA.Size.Height);
+            CvInvoke.Resize(PictureB, imageBresized, PictureA.Size);
+            resultImage = PictureA.Or(imageBresized, null);
+            ResultPictureBox.Image = resultImage.ToBitmap();
+            chartResult.Series.Clear();
+            Histogram_ResultPicture();
             chartResult.Visible = true;
+            label3.Visible = true;
+            ResultPictureBox.Visible = true;
             saveResultToolStripMenuItem.Enabled = true;
         }
 
@@ -169,8 +198,14 @@ namespace APO
                 return;
             }
 
+            Bitmap newimg = Utility.XOR((Bitmap)pictureBoxA.Image, (Bitmap)pictureBoxB.Image);
+            ResultPictureBox.Image = newimg;
 
+            chartResult.Series.Clear();
+            Histogram_ResultPicture();
             chartResult.Visible = true;
+            label3.Visible = true;
+            ResultPictureBox.Visible = true;
             saveResultToolStripMenuItem.Enabled = true;
         }
 
@@ -186,9 +221,15 @@ namespace APO
                 MessageBox.Show("Select picture B.");
                 return;
             }
-
+            chartResult.Series.Clear();
+            chartResult.Visible = false;
+            label3.Visible = false;
+            ResultPictureBox.Visible = false;
+            saveResultToolStripMenuItem.Enabled = false;
             pictureBoxA.Image = Utility.Negation((Bitmap)pictureBoxA.Image);
             pictureBoxB.Image = Utility.Negation((Bitmap)pictureBoxB.Image);
+            Histogram_PictureB();
+            Histogram_PictureA();
         }
 
         private void Histogram_ResultPicture()
