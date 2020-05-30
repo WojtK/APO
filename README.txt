@@ -22,7 +22,10 @@ Zapisywanie histogramu i obrazu - Save Histogram/Picture
 Resetowanie zmian w grafice (przy pomocy button-ów Reset itp) - uwaga, działa do jednej zmiany
 (do jednego nowego okienka wstecz)
 
-Laboratorium 3 
+LABORATORIUM 3 
+
+Poprawione błędy z Lab 1 i 2:
+-Pola wprowadzania wartości progowania zostały zabezpieczone przed wprowadzaniem np ciągu znaków
 
 Główne:
 

@@ -71,6 +71,7 @@ namespace APO
 
         private void rGBToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GraphicWindowChart.Series.Clear();
             GraphicWindowChart.Visible = true;
             Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)PictureBox.Image);
             int[] RedLut = Utility.HistogramLUT(map, "red");
@@ -105,6 +106,7 @@ namespace APO
 
         private void grayToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            GraphicWindowChart.Series.Clear();
             GraphicWindowChart.Visible = true;
             Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)PictureBox.Image);
             int[] GrayLut = Utility.HistogramLUT(map);
@@ -256,26 +258,14 @@ namespace APO
 
         private void thresholdingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (P1textBox.Text == "")
-            {
-                MessageBox.Show("Type value");
-            }
-            else
-            {
-                PictureBox.Image = Utility.Thresholding((Bitmap)PictureBox.Image, Convert.ToInt32(P1textBox.Text));
-            }
+    
+                PictureBox.Image = Utility.Thresholding((Bitmap)PictureBox.Image, Convert.ToInt32(numericUpDown1.Value));
+
         }
 
         private void thresholdingGrayLevelsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (P2textBox.Text == "" || P1textBox.Text == "")
-            {
-                MessageBox.Show("Type values");
-            }
-            else
-            {
-                PictureBox.Image = Utility.Thresholding2((Bitmap)PictureBox.Image, Convert.ToInt32(P1textBox.Text), Convert.ToInt32(P2textBox.Text));              
-            }
+        {        
+                PictureBox.Image = Utility.Thresholding2((Bitmap)PictureBox.Image, Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value));              
 
         }
 

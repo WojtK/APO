@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cloneWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,19 +50,22 @@
             this.GraphicWindowChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.P1textBox = new System.Windows.Forms.TextBox();
-            this.P2textBox = new System.Windows.Forms.TextBox();
             this.defaultbutton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraphicWindowChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // PictureBox
             // 
-            this.PictureBox.Location = new System.Drawing.Point(841, 45);
+            this.PictureBox.Location = new System.Drawing.Point(844, 109);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(574, 543);
+            this.PictureBox.Size = new System.Drawing.Size(574, 555);
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
             // 
@@ -82,7 +86,7 @@
             this.posterizeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1492, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1454, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -185,16 +189,16 @@
             // 
             // GraphicWindowChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.GraphicWindowChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.GraphicWindowChart.Legends.Add(legend1);
-            this.GraphicWindowChart.Location = new System.Drawing.Point(27, 45);
+            chartArea7.Name = "ChartArea1";
+            this.GraphicWindowChart.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.GraphicWindowChart.Legends.Add(legend7);
+            this.GraphicWindowChart.Location = new System.Drawing.Point(27, 109);
             this.GraphicWindowChart.Name = "GraphicWindowChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.GraphicWindowChart.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.GraphicWindowChart.Series.Add(series7);
             this.GraphicWindowChart.Size = new System.Drawing.Size(778, 555);
             this.GraphicWindowChart.TabIndex = 2;
             this.GraphicWindowChart.Visible = false;
@@ -202,7 +206,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(848, 616);
+            this.label1.Location = new System.Drawing.Point(1188, 695);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 3;
@@ -211,29 +215,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(848, 662);
+            this.label2.Location = new System.Drawing.Point(1188, 740);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Upper threshold:";
             // 
-            // P1textBox
-            // 
-            this.P1textBox.Location = new System.Drawing.Point(995, 613);
-            this.P1textBox.Name = "P1textBox";
-            this.P1textBox.Size = new System.Drawing.Size(113, 22);
-            this.P1textBox.TabIndex = 5;
-            // 
-            // P2textBox
-            // 
-            this.P2textBox.Location = new System.Drawing.Point(995, 659);
-            this.P2textBox.Name = "P2textBox";
-            this.P2textBox.Size = new System.Drawing.Size(113, 22);
-            this.P2textBox.TabIndex = 6;
-            // 
             // defaultbutton
             // 
-            this.defaultbutton.Location = new System.Drawing.Point(27, 626);
+            this.defaultbutton.Location = new System.Drawing.Point(27, 690);
             this.defaultbutton.Name = "defaultbutton";
             this.defaultbutton.Size = new System.Drawing.Size(191, 70);
             this.defaultbutton.TabIndex = 7;
@@ -241,14 +231,44 @@
             this.defaultbutton.UseVisualStyleBackColor = true;
             this.defaultbutton.Click += new System.EventHandler(this.defaultbutton_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(1335, 690);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(69, 22);
+            this.numericUpDown1.TabIndex = 9;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(1335, 738);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(69, 22);
+            this.numericUpDown2.TabIndex = 10;
+            // 
             // GraphicWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1492, 708);
+            this.ClientSize = new System.Drawing.Size(1454, 781);
+            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.defaultbutton);
-            this.Controls.Add(this.P2textBox);
-            this.Controls.Add(this.P1textBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GraphicWindowChart);
@@ -261,6 +281,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraphicWindowChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,9 +307,10 @@
         private System.Windows.Forms.ToolStripMenuItem thresholdingGrayLevelsToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox P1textBox;
-        private System.Windows.Forms.TextBox P2textBox;
         private System.Windows.Forms.Button defaultbutton;
         private System.Windows.Forms.ToolStripMenuItem posterizeToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }
