@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Emgu.CV;
+using Emgu.CV.Structure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -286,8 +288,15 @@ namespace APO
             PosterizeWindow posterizeWindow = new PosterizeWindow(this);
             posterizeWindow.Show();
             this.Close();
-        }      
-       
+        }
+
+        private void neighborhoodOperationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image<Bgra, byte> image = picture.ToImage<Bgra, byte>();
+            NeighborhoodOperationsWindow operationsForm = new NeighborhoodOperationsWindow(image);
+            operationsForm.Show();
+            this.Close();
+        }
     }
 }
 

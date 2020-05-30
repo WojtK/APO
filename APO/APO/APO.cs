@@ -33,16 +33,22 @@ namespace APO
             }
         }
 
-        private void aboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        private void binaryOperationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BinaryOperationsWindow BinaryWindow = new BinaryOperationsWindow();
+            BinaryWindow.Show();
+        }
+
+        private void aboutProgramToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             About_programWindow info = new About_programWindow();
             info.Show();
         }
 
-        private void binaryOperationsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void neighborhoodOperationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BinaryOperationsWindow BinaryWindow = new BinaryOperationsWindow();
-            BinaryWindow.Show();
+            NeighborhoodOperationsWindow window = new NeighborhoodOperationsWindow();
+            window.Show();
         }
     }
 }

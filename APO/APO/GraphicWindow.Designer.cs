@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cloneWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +53,7 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.neighborhoodOperationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraphicWindowChart)).BeginInit();
@@ -64,7 +65,7 @@
             // 
             this.PictureBox.Location = new System.Drawing.Point(844, 109);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(574, 555);
+            this.PictureBox.Size = new System.Drawing.Size(677, 555);
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
             // 
@@ -82,10 +83,11 @@
             this.stretchToolStripMenuItem,
             this.thresholdingToolStripMenuItem,
             this.thresholdingGrayLevelsToolStripMenuItem,
-            this.posterizeToolStripMenuItem});
+            this.posterizeToolStripMenuItem,
+            this.neighborhoodOperationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1509, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1628, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -188,16 +190,16 @@
             // 
             // GraphicWindowChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.GraphicWindowChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.GraphicWindowChart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.GraphicWindowChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.GraphicWindowChart.Legends.Add(legend3);
             this.GraphicWindowChart.Location = new System.Drawing.Point(27, 109);
             this.GraphicWindowChart.Name = "GraphicWindowChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.GraphicWindowChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.GraphicWindowChart.Series.Add(series3);
             this.GraphicWindowChart.Size = new System.Drawing.Size(778, 555);
             this.GraphicWindowChart.TabIndex = 2;
             this.GraphicWindowChart.Visible = false;
@@ -259,15 +261,22 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1509, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(1628, 24);
             this.menuStrip2.TabIndex = 13;
             this.menuStrip2.Text = "menuStrip2";
+            // 
+            // neighborhoodOperationsToolStripMenuItem
+            // 
+            this.neighborhoodOperationsToolStripMenuItem.Name = "neighborhoodOperationsToolStripMenuItem";
+            this.neighborhoodOperationsToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.neighborhoodOperationsToolStripMenuItem.Text = "Neighborhood Operations";
+            this.neighborhoodOperationsToolStripMenuItem.Click += new System.EventHandler(this.neighborhoodOperationsToolStripMenuItem_Click);
             // 
             // GraphicWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1509, 781);
+            this.ClientSize = new System.Drawing.Size(1628, 781);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.defaultbutton);
@@ -315,5 +324,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem neighborhoodOperationsToolStripMenuItem;
     }
 }

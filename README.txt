@@ -40,7 +40,12 @@ c)AND
 d)OR
 e)XOR
 f)NOT W przypadku operacji NOT nie wyświetla się wynik w oknie Result
-
-
+-Operacje sąsiedztwa
+a)Detekcja krawędzi:
+1.Canny
+2.Sobel
+3.Laplacian
+b)Blur
+c)Smothing
 Dodatkowe:
 -Dodano okno "About program" zawierające informacje o autorze programu itp
