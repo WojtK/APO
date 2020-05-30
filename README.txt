@@ -50,5 +50,10 @@ c)Wygładzanie
 -liniowe
 -gaussowskie
 d)Wyostrzanie (Laplasian)
+Po użyciu Wyostrzania i powrocie do okna operacji sąsiedztwa ponowna próba wejścia w 
+wyostrzanie kończy się błędem. Będę próbował to potem naprawić. Ale ogólnie ta funkcja działa 
+e)Filtr medianowy (3x3 , 5x5, 7x7, 11x11)
 Dodatkowe:
 -Dodano okno "About program" zawierające informacje o autorze programu itp
+
+LABORATORIUM 4 

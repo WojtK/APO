@@ -183,5 +183,37 @@ namespace APO
             window.Show();
             this.Close();
         }
+
+        private void x3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mat srcimg = Utility.GetMatFromSDImage(NeighborhoodPicture.Image);
+            Mat dstimg = new Mat();
+            CvInvoke.MedianBlur(srcimg, dstimg, 3);
+            NeighborhoodPicture.Image = dstimg.ToBitmap();
+        }
+
+        private void x5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mat srcimg = Utility.GetMatFromSDImage(NeighborhoodPicture.Image);
+            Mat dstimg = new Mat();
+            CvInvoke.MedianBlur(srcimg, dstimg, 5);
+            NeighborhoodPicture.Image = dstimg.ToBitmap();
+        }
+
+        private void x7ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mat srcimg = Utility.GetMatFromSDImage(NeighborhoodPicture.Image);
+            Mat dstimg = new Mat();
+            CvInvoke.MedianBlur(srcimg, dstimg, 7);
+            NeighborhoodPicture.Image = dstimg.ToBitmap();
+        }
+
+        private void x11ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mat srcimg = Utility.GetMatFromSDImage(NeighborhoodPicture.Image);
+            Mat dstimg = new Mat();
+            CvInvoke.MedianBlur(srcimg, dstimg, 11);
+            NeighborhoodPicture.Image = dstimg.ToBitmap();
+        }
     }
 }

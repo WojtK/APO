@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.NeighborhoodPicture = new System.Windows.Forms.PictureBox();
             this.NeighborhoodChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -46,6 +46,11 @@
             this.cannyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sharpeningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.medianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x11ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.NeighborhoodPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NeighborhoodChart)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -62,16 +67,16 @@
             // 
             // NeighborhoodChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.NeighborhoodChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.NeighborhoodChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.NeighborhoodChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.NeighborhoodChart.Legends.Add(legend5);
             this.NeighborhoodChart.Location = new System.Drawing.Point(42, 62);
             this.NeighborhoodChart.Name = "NeighborhoodChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.NeighborhoodChart.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.NeighborhoodChart.Series.Add(series5);
             this.NeighborhoodChart.Size = new System.Drawing.Size(605, 588);
             this.NeighborhoodChart.TabIndex = 2;
             this.NeighborhoodChart.Text = "chart1";
@@ -88,7 +93,8 @@
             this.blurToolStripMenuItem,
             this.saveHistogramToolStripMenuItem,
             this.edgeDetectionToolStripMenuItem,
-            this.sharpeningToolStripMenuItem});
+            this.sharpeningToolStripMenuItem,
+            this.medianFilterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1668, 28);
@@ -186,6 +192,45 @@
             this.sharpeningToolStripMenuItem.Text = "Sharpening";
             this.sharpeningToolStripMenuItem.Click += new System.EventHandler(this.sharpeningToolStripMenuItem_Click);
             // 
+            // medianFilterToolStripMenuItem
+            // 
+            this.medianFilterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.x3ToolStripMenuItem,
+            this.x5ToolStripMenuItem,
+            this.x7ToolStripMenuItem,
+            this.x11ToolStripMenuItem});
+            this.medianFilterToolStripMenuItem.Name = "medianFilterToolStripMenuItem";
+            this.medianFilterToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.medianFilterToolStripMenuItem.Text = "median filter";
+            // 
+            // x3ToolStripMenuItem
+            // 
+            this.x3ToolStripMenuItem.Name = "x3ToolStripMenuItem";
+            this.x3ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.x3ToolStripMenuItem.Text = "3x3";
+            this.x3ToolStripMenuItem.Click += new System.EventHandler(this.x3ToolStripMenuItem_Click);
+            // 
+            // x5ToolStripMenuItem
+            // 
+            this.x5ToolStripMenuItem.Name = "x5ToolStripMenuItem";
+            this.x5ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.x5ToolStripMenuItem.Text = "5x5";
+            this.x5ToolStripMenuItem.Click += new System.EventHandler(this.x5ToolStripMenuItem_Click);
+            // 
+            // x7ToolStripMenuItem
+            // 
+            this.x7ToolStripMenuItem.Name = "x7ToolStripMenuItem";
+            this.x7ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.x7ToolStripMenuItem.Text = "7x7";
+            this.x7ToolStripMenuItem.Click += new System.EventHandler(this.x7ToolStripMenuItem_Click);
+            // 
+            // x11ToolStripMenuItem
+            // 
+            this.x11ToolStripMenuItem.Name = "x11ToolStripMenuItem";
+            this.x11ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.x11ToolStripMenuItem.Text = "11x11";
+            this.x11ToolStripMenuItem.Click += new System.EventHandler(this.x11ToolStripMenuItem_Click);
+            // 
             // NeighborhoodOperationsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,5 +267,10 @@
         private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sharpeningToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem medianFilterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x7ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x11ToolStripMenuItem;
     }
 }
