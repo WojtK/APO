@@ -23,8 +23,6 @@ namespace APO
         public BinaryOperationsWindow()
         {
             InitializeComponent();
-            pictureBoxB.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBoxB.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void buttonA_Click(object sender, EventArgs e)
@@ -100,6 +98,7 @@ namespace APO
             resultImage = PictureA.Add(imageBresized, null);
             ResultPictureBox.Image = resultImage.ToBitmap();
             chartResult.Series.Clear();
+            saveResultHistogramToolStripMenuItem.Enabled = true;
             Histogram_ResultPicture();
             chartResult.Visible = true;
             label3.Visible = true;
@@ -126,6 +125,7 @@ namespace APO
             resultImage = PictureA.AddWeighted(imageBresized, 0.5, 1 - 0.5, 0);
             ResultPictureBox.Image = resultImage.ToBitmap();
             chartResult.Series.Clear();
+            saveResultHistogramToolStripMenuItem.Enabled = true;
             Histogram_ResultPicture();
             chartResult.Visible = true;
             label3.Visible = true;
@@ -152,6 +152,7 @@ namespace APO
             resultImage = PictureA.And(imageBresized, null);
             ResultPictureBox.Image = resultImage.ToBitmap();
             chartResult.Series.Clear();
+            saveResultHistogramToolStripMenuItem.Enabled = true;
             Histogram_ResultPicture();
             chartResult.Visible = true;
             label3.Visible = true;
@@ -178,6 +179,7 @@ namespace APO
             resultImage = PictureA.Or(imageBresized, null);
             ResultPictureBox.Image = resultImage.ToBitmap();
             chartResult.Series.Clear();
+            saveResultHistogramToolStripMenuItem.Enabled = true;
             Histogram_ResultPicture();
             chartResult.Visible = true;
             label3.Visible = true;
@@ -202,6 +204,7 @@ namespace APO
             ResultPictureBox.Image = newimg;
 
             chartResult.Series.Clear();
+            saveResultHistogramToolStripMenuItem.Enabled = true;
             Histogram_ResultPicture();
             chartResult.Visible = true;
             label3.Visible = true;
@@ -228,6 +231,7 @@ namespace APO
             saveResultToolStripMenuItem.Enabled = false;
             pictureBoxA.Image = Utility.Negation((Bitmap)pictureBoxA.Image);
             pictureBoxB.Image = Utility.Negation((Bitmap)pictureBoxB.Image);
+            saveResultHistogramToolStripMenuItem.Enabled = false;
             Histogram_PictureB();
             Histogram_PictureA();
         }
@@ -300,6 +304,17 @@ namespace APO
                 this.chartB.Series["Blue"].Points.AddXY(i, BlueLut[i]);
 
             }
+        }
+
+        private void saveResultHistogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog x = new SaveFileDialog();
+            x.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg";
+            x.FileName = "Histogram";
+            x.ShowDialog();
+
+            try { this.chartResult.SaveImage(x.FileName, ChartImageFormat.Jpeg); }
+            catch { MessageBox.Show("Failed to save"); }
         }
     }
 }

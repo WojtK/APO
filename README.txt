@@ -29,7 +29,8 @@ Poprawione błędy z Lab 1 i 2:
 
 Główne:
 -Operacje dwuargumentowe:
-Przy ponownym wyborze zdjęć wykresy wariują, ponieważ przyjmują skalę pierwszego wyboru
+Przy ponownym wyborze zdjęć przy operacjach dwuargumentowych wykresy wariują, 
+ponieważ przyjmują skalę pierwszego wyboru
 tzn. jeśli np zdjęcie pierwsze ma wartości maks 2000 i wykres przyjmie skalę 3000 to w 
 przypadku wyboru zdjęcia gdzie przyjmuje ono momentami wartosci np 10000, wykres nie zaktualizuje
 się. Niestety nie wiem jak to zrobić, aby się aktualizował.
@@ -39,5 +40,7 @@ c)AND
 d)OR
 e)XOR
 f)NOT W przypadku operacji NOT nie wyświetla się wynik w oknie Result
+
+
 Dodatkowe:
 -Dodano okno "About program" zawierające informacje o autorze programu itp
