@@ -16,8 +16,8 @@ namespace APO
 {
     public partial class MorphologicalWindow : Form
     {
-        public Image<Bgra, byte> picture;
         public Image<Bgra, byte> chart;
+        public Image<Bgra, byte> picture;
         public Image<Bgra, byte> defaultpicture;
         private Stack<Image<Bgra, byte>> imageBackup;
         private Stack<Image<Bgra, byte>> chartBackup;
@@ -54,6 +54,7 @@ namespace APO
             if (picture != null)
             {
                 imageBackup.Push(picture);
+                chartBackup.Push(chart);
                 Image<Bgra, byte> resultImage = new Image<Bgra, byte>(picture.Size.Width, picture.Size.Height);
                 CvInvoke.Dilate(picture, resultImage, element, new Point(-1, -1), 1, borderType, new MCvScalar(255, 255, 255));
                 MorfologicalPictureBox.Image = resultImage.ToBitmap();
@@ -68,6 +69,7 @@ namespace APO
             if (picture != null)
             {
                 imageBackup.Push(picture);
+                chartBackup.Push(chart);
                 Image<Bgra, byte> resultImage = new Image<Bgra, byte>(picture.Size.Width, picture.Size.Height);
                 CvInvoke.MorphologyEx(picture, resultImage,
                                         Emgu.CV.CvEnum.MorphOp.Open,
@@ -85,6 +87,7 @@ namespace APO
             if (picture != null)
             {
                 imageBackup.Push(picture);
+                chartBackup.Push(chart);
                 Image<Bgra, byte> resultImage = new Image<Bgra, byte>(picture.Size.Width, picture.Size.Height);
                 CvInvoke.MorphologyEx(picture, resultImage,
                                         Emgu.CV.CvEnum.MorphOp.Close,
@@ -108,6 +111,7 @@ namespace APO
                 this.picture = bitmap.ToImage<Bgra, byte>();
                 defaultpicture = picture;
                 this.imageBackup.Push(this.picture);
+                this.chartBackup.Push(this.picture);
                 Utility.Histogram(MorfologicalChart, (Bitmap)MorfologicalPictureBox.Image);
                 saveHistogramToolStripMenuItem.Enabled = true;
                 savePictureToolStripMenuItem.Enabled = true;
@@ -185,7 +189,7 @@ namespace APO
             if (picture != null)
             {
                 imageBackup.Push(picture);
-
+                chartBackup.Push(chart);
 
                 Image<Gray, byte> skel = new Image<Gray, byte>(MorfologicalPictureBox.Image.Size);
                 for (int y = 0; y < skel.Height; y++)
@@ -229,7 +233,6 @@ namespace APO
                 picture = imageBackup.Pop();
                 MorfologicalPictureBox.Image = picture.ToBitmap();
             }
-
         }
 
         private void savePictureToolStripMenuItem_Click(object sender, EventArgs e)
