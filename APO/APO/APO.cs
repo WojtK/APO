@@ -50,5 +50,11 @@ namespace APO
             NeighborhoodOperationsWindow window = new NeighborhoodOperationsWindow();
             window.Show();
         }
+
+        private void morfologicalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MorphologicalWindow window = new MorphologicalWindow();
+            window.Show();
+        }
     }
 }

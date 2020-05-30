@@ -86,6 +86,12 @@
     <Compile Include="GraphicWindow.Designer.cs">
       <DependentUpon>GraphicWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="MorfologicalWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MorfologicalWindow.Designer.cs">
+      <DependentUpon>MorfologicalWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="NeighborhoodOperationsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GraphicWindow.resx">
       <DependentUpon>GraphicWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MorfologicalWindow.resx">
+      <DependentUpon>MorfologicalWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NeighborhoodOperationsWindow.resx">
       <DependentUpon>NeighborhoodOperationsWindow.cs</DependentUpon>

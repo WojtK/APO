@@ -403,6 +403,7 @@ namespace APO
             var img = (Bitmap)Image.FromStream(ms);
             return img;
         }
+
         public static Mat GetMatFromSDImage(System.Drawing.Image image)
         {
             int stride = 0;
@@ -428,6 +429,29 @@ namespace APO
             return cvImage.Mat;
         }
 
+        public static void Histogram(Chart chart, Bitmap bitmap)
+        {
+            Dictionary<Color, int> map = Utility.HistogramMap(bitmap);
+            int[] RedLut = Utility.HistogramLUT(map, "red");
+            int[] GreenLut = Utility.HistogramLUT(map, "green");
+            int[] BlueLut = Utility.HistogramLUT(map, "blue");
+
+            chart.Series.Clear();
+            chart.Series.Add("Red");
+            chart.Series.Add("Blue");
+            chart.Series.Add("Green");
+            chart.Series["Red"].Color = Color.Red;
+            chart.Series["Blue"].Color = Color.Blue;
+            chart.Series["Green"].Color = Color.Green;
+
+            for (int i = 0; i < RedLut.Length; i++)
+            {
+                chart.Series["Red"].Points.AddXY(i, RedLut[i]);
+                chart.Series["Green"].Points.AddXY(i, GreenLut[i]);
+                chart.Series["Blue"].Points.AddXY(i, BlueLut[i]);
+
+            }
+        }
         public static Bitmap Filter2D(Bitmap bmp, float[,] mask)
         {
             string file1 = Utility.SaveBmpTmp(bmp);

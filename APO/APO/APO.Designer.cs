@@ -34,7 +34,6 @@
             this.binaryOperationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neighborhoodOperationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.morfologicalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.masksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +46,6 @@
             this.binaryOperationsToolStripMenuItem,
             this.neighborhoodOperationsToolStripMenuItem,
             this.morfologicalToolStripMenuItem,
-            this.masksToolStripMenuItem,
             this.aboutProgramToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -90,12 +88,7 @@
             this.morfologicalToolStripMenuItem.Name = "morfologicalToolStripMenuItem";
             this.morfologicalToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
             this.morfologicalToolStripMenuItem.Text = "Morfological";
-            // 
-            // masksToolStripMenuItem
-            // 
-            this.masksToolStripMenuItem.Name = "masksToolStripMenuItem";
-            this.masksToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
-            this.masksToolStripMenuItem.Text = "Masks";
+            this.morfologicalToolStripMenuItem.Click += new System.EventHandler(this.morfologicalToolStripMenuItem_Click);
             // 
             // aboutProgramToolStripMenuItem
             // 
@@ -128,7 +121,6 @@
         private System.Windows.Forms.ToolStripMenuItem binaryOperationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neighborhoodOperationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem morfologicalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem masksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutProgramToolStripMenuItem;
     }
 }

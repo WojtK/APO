@@ -31,6 +31,14 @@ namespace APO
             this.inputPicture = image;
             NeighborhoodPicture.Image = image.ToBitmap();
             NeighborhoodChart.Visible = true;
+            resetToolStripMenuItem.Enabled = true;
+            saveHistogramToolStripMenuItem.Enabled = true;
+            savePictureToolStripMenuItem.Enabled = true;
+            doneToolStripMenuItem.Enabled = true;
+            blurToolStripMenuItem.Enabled = true;
+            medianFilterToolStripMenuItem.Enabled = true;
+            edgeDetectionToolStripMenuItem.Enabled = true;
+            sharpeningToolStripMenuItem.Enabled = true;
             Histogram();
 
         }
@@ -45,6 +53,15 @@ namespace APO
             NeighborhoodPicture.SizeMode = PictureBoxSizeMode.StretchImage;
             resetToolStripMenuItem.Enabled = true;
             NeighborhoodChart.Visible = true;
+            saveHistogramToolStripMenuItem.Enabled = true;
+            savePictureToolStripMenuItem.Enabled = true;
+            doneToolStripMenuItem.Enabled = true;
+            blurToolStripMenuItem.Enabled = true;
+            medianFilterToolStripMenuItem.Enabled = true;
+            edgeDetectionToolStripMenuItem.Enabled = true;
+            sharpeningToolStripMenuItem.Enabled = true;
+
+
             Histogram();
         }
 
@@ -62,6 +79,11 @@ namespace APO
                 saveHistogramToolStripMenuItem.Enabled = true;
                 resetToolStripMenuItem.Enabled = true;
                 savePictureToolStripMenuItem.Enabled = true;
+                doneToolStripMenuItem.Enabled = true;
+                blurToolStripMenuItem.Enabled = true;
+                medianFilterToolStripMenuItem.Enabled = true;
+                edgeDetectionToolStripMenuItem.Enabled = true;
+                sharpeningToolStripMenuItem.Enabled = true;
             }
         }
 
