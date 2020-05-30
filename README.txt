@@ -29,5 +29,12 @@ Poprawione błędy z Lab 1 i 2:
 
 Główne:
 -Redukcja poziomów szarości - gray levels reduction
+-Operacje dwuargumentowe:
+a)Add
+b)Blend
+c)AND
+d)OR
+e)XOR
+f)NOT
 Dodatkowe:
 -Dodano okno "About program" zawierające informacje o autorze programu itp
