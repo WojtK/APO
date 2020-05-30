@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.NeighborhoodPicture = new System.Windows.Forms.PictureBox();
             this.NeighborhoodChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -40,12 +40,12 @@
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.masksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveHistogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edgeDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.laplacianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cannyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sharpeningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.NeighborhoodPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NeighborhoodChart)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -53,25 +53,26 @@
             // 
             // NeighborhoodPicture
             // 
-            this.NeighborhoodPicture.Location = new System.Drawing.Point(597, 62);
+            this.NeighborhoodPicture.Location = new System.Drawing.Point(669, 62);
             this.NeighborhoodPicture.Name = "NeighborhoodPicture";
-            this.NeighborhoodPicture.Size = new System.Drawing.Size(876, 588);
+            this.NeighborhoodPicture.Size = new System.Drawing.Size(955, 588);
+            this.NeighborhoodPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.NeighborhoodPicture.TabIndex = 1;
             this.NeighborhoodPicture.TabStop = false;
             // 
             // NeighborhoodChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.NeighborhoodChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.NeighborhoodChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.NeighborhoodChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.NeighborhoodChart.Legends.Add(legend1);
             this.NeighborhoodChart.Location = new System.Drawing.Point(42, 62);
             this.NeighborhoodChart.Name = "NeighborhoodChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.NeighborhoodChart.Series.Add(series2);
-            this.NeighborhoodChart.Size = new System.Drawing.Size(532, 588);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.NeighborhoodChart.Series.Add(series1);
+            this.NeighborhoodChart.Size = new System.Drawing.Size(605, 588);
             this.NeighborhoodChart.TabIndex = 2;
             this.NeighborhoodChart.Text = "chart1";
             this.NeighborhoodChart.Visible = false;
@@ -85,12 +86,12 @@
             this.resetToolStripMenuItem,
             this.doneToolStripMenuItem,
             this.blurToolStripMenuItem,
-            this.masksToolStripMenuItem,
             this.saveHistogramToolStripMenuItem,
-            this.edgeDetectionToolStripMenuItem});
+            this.edgeDetectionToolStripMenuItem,
+            this.sharpeningToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1485, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1668, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -105,7 +106,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -139,13 +140,6 @@
             this.blurToolStripMenuItem.Text = "Blur";
             this.blurToolStripMenuItem.Click += new System.EventHandler(this.blurToolStripMenuItem_Click);
             // 
-            // masksToolStripMenuItem
-            // 
-            this.masksToolStripMenuItem.Name = "masksToolStripMenuItem";
-            this.masksToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
-            this.masksToolStripMenuItem.Text = "Masks";
-            this.masksToolStripMenuItem.Click += new System.EventHandler(this.masksToolStripMenuItem_Click);
-            // 
             // saveHistogramToolStripMenuItem
             // 
             this.saveHistogramToolStripMenuItem.Enabled = false;
@@ -167,29 +161,36 @@
             // laplacianToolStripMenuItem
             // 
             this.laplacianToolStripMenuItem.Name = "laplacianToolStripMenuItem";
-            this.laplacianToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.laplacianToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.laplacianToolStripMenuItem.Text = "Laplacian";
             this.laplacianToolStripMenuItem.Click += new System.EventHandler(this.laplacianToolStripMenuItem_Click);
             // 
             // cannyToolStripMenuItem
             // 
             this.cannyToolStripMenuItem.Name = "cannyToolStripMenuItem";
-            this.cannyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cannyToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.cannyToolStripMenuItem.Text = "Canny";
             this.cannyToolStripMenuItem.Click += new System.EventHandler(this.cannyToolStripMenuItem_Click);
             // 
             // sobelToolStripMenuItem
             // 
             this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
-            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.sobelToolStripMenuItem.Text = "Sobel";
             this.sobelToolStripMenuItem.Click += new System.EventHandler(this.sobelToolStripMenuItem_Click);
+            // 
+            // sharpeningToolStripMenuItem
+            // 
+            this.sharpeningToolStripMenuItem.Name = "sharpeningToolStripMenuItem";
+            this.sharpeningToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.sharpeningToolStripMenuItem.Text = "Sharpening";
+            this.sharpeningToolStripMenuItem.Click += new System.EventHandler(this.sharpeningToolStripMenuItem_Click);
             // 
             // NeighborhoodOperationsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1485, 714);
+            this.ClientSize = new System.Drawing.Size(1668, 714);
             this.Controls.Add(this.NeighborhoodChart);
             this.Controls.Add(this.NeighborhoodPicture);
             this.Controls.Add(this.menuStrip1);
@@ -215,11 +216,11 @@
         private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem blurToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem masksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveHistogramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem edgeDetectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem laplacianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sharpeningToolStripMenuItem;
     }
 }

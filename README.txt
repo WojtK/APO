@@ -46,6 +46,9 @@ a)Detekcja krawędzi:
 2.Sobel
 3.Laplacian
 b)Blur
-c)Smothing
+c)Wygładzanie
+-liniowe
+-gaussowskie
+d)Wyostrzanie (Laplasian)
 Dodatkowe:
 -Dodano okno "About program" zawierające informacje o autorze programu itp

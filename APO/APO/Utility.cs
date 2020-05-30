@@ -403,6 +403,20 @@ namespace APO
             var img = (Bitmap)Image.FromStream(ms);
             return img;
         }
+
+        public static Bitmap Filter2D(Bitmap bmp, float[,] mask)
+        {
+            string file1 = Utility.SaveBmpTmp(bmp);
+            Image<Bgr, float> img = new Image<Bgr, float>(file1),
+                             dst = new Image<Bgr, float>(img.Size);
+            ConvolutionKernelF kernel = new ConvolutionKernelF(mask);
+            CvInvoke.Filter2D(img, dst, kernel, new Point(-1, -1));
+            dst.Save(file1);
+            Bitmap tmpBmp = Utility.BmpFromFile(file1);
+            File.Delete(file1);
+            return tmpBmp;
+        }
+
         public static Bitmap XOR(Bitmap bmp1, Bitmap bmp2)
         {
             string file1 = SaveBmpTmp(bmp1),
