@@ -28,6 +28,6 @@ Poprawione błędy z Lab 1 i 2:
 -Pola wprowadzania wartości progowania zostały zabezpieczone przed wprowadzaniem np ciągu znaków
 
 Główne:
-
+-Redukcja poziomów szarości - gray levels reduction
 Dodatkowe:
 -Dodano okno "About program" zawierające informacje o autorze programu itp

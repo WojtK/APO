@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cloneWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,18 +54,22 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.grayLevelsReductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GrayLevelsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraphicWindowChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrayLevelsNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // PictureBox
             // 
             this.PictureBox.Location = new System.Drawing.Point(844, 109);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(574, 555);
+            this.PictureBox.Size = new System.Drawing.Size(637, 555);
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
             // 
@@ -83,10 +87,11 @@
             this.stretchToolStripMenuItem,
             this.thresholdingToolStripMenuItem,
             this.thresholdingGrayLevelsToolStripMenuItem,
-            this.posterizeToolStripMenuItem});
+            this.posterizeToolStripMenuItem,
+            this.grayLevelsReductionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1454, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1533, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -189,16 +194,16 @@
             // 
             // GraphicWindowChart
             // 
-            chartArea7.Name = "ChartArea1";
-            this.GraphicWindowChart.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.GraphicWindowChart.Legends.Add(legend7);
+            chartArea3.Name = "ChartArea1";
+            this.GraphicWindowChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.GraphicWindowChart.Legends.Add(legend3);
             this.GraphicWindowChart.Location = new System.Drawing.Point(27, 109);
             this.GraphicWindowChart.Name = "GraphicWindowChart";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.GraphicWindowChart.Series.Add(series7);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.GraphicWindowChart.Series.Add(series3);
             this.GraphicWindowChart.Size = new System.Drawing.Size(778, 555);
             this.GraphicWindowChart.TabIndex = 2;
             this.GraphicWindowChart.Visible = false;
@@ -261,11 +266,41 @@
             this.numericUpDown2.Size = new System.Drawing.Size(69, 22);
             this.numericUpDown2.TabIndex = 10;
             // 
+            // grayLevelsReductionToolStripMenuItem
+            // 
+            this.grayLevelsReductionToolStripMenuItem.Name = "grayLevelsReductionToolStripMenuItem";
+            this.grayLevelsReductionToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
+            this.grayLevelsReductionToolStripMenuItem.Text = "Gray levels reduction";
+            this.grayLevelsReductionToolStripMenuItem.Click += new System.EventHandler(this.grayLevelsReductionToolStripMenuItem_Click);
+            // 
+            // GrayLevelsNumericUpDown
+            // 
+            this.GrayLevelsNumericUpDown.Location = new System.Drawing.Point(1063, 693);
+            this.GrayLevelsNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.GrayLevelsNumericUpDown.Name = "GrayLevelsNumericUpDown";
+            this.GrayLevelsNumericUpDown.Size = new System.Drawing.Size(69, 22);
+            this.GrayLevelsNumericUpDown.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(899, 695);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Gray levels reduction n:";
+            // 
             // GraphicWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1454, 781);
+            this.ClientSize = new System.Drawing.Size(1533, 781);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.GrayLevelsNumericUpDown);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.defaultbutton);
@@ -283,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GraphicWindowChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrayLevelsNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,5 +348,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.ToolStripMenuItem grayLevelsReductionToolStripMenuItem;
+        private System.Windows.Forms.NumericUpDown GrayLevelsNumericUpDown;
+        private System.Windows.Forms.Label label3;
     }
 }

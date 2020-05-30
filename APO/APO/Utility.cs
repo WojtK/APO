@@ -602,6 +602,45 @@ namespace APO
 
             return newBm;
         }
+
+        public static Bitmap Reduction(Bitmap bitmap, int n) 
+        {
+            Bitmap newBitmap = new Bitmap(bitmap);
+            int p = 256 / n; 
+            Dictionary<Color, int> map = HistogramMap(bitmap);                        
+
+            int p0 = 0;
+            int p1 = 0;
+
+            for (int i = 0; i < n; ++i)
+            {
+                p0 = p1;
+                p1 = p1 + p;
+                for (int x = 0; x < bitmap.Width; ++x)
+                {
+                    for (int y = 0; y < bitmap.Height; ++y)
+                    {
+                        Color newColor = Color.FromArgb(0, 0, 0);
+
+                        if ((bitmap.GetPixel(x, y).R >= p0) && (bitmap.GetPixel(x, y).R < p1))
+                        {
+                            newColor = Color.FromArgb(p0 + (n / 2), newColor.G, newColor.B);
+                        }
+                        if ((bitmap.GetPixel(x, y).G >= p0) && (bitmap.GetPixel(x, y).G < p1))
+                        {
+                            newColor = Color.FromArgb(newColor.R, p0 + (n / 2), newColor.B);
+                        }
+                        if ((bitmap.GetPixel(x, y).B >= p0) && (bitmap.GetPixel(x, y).B < p1))
+                        {
+                            newColor = Color.FromArgb(newColor.R, newColor.G, p0 + (n / 2));
+                        }
+                        newBitmap.SetPixel(x, y, newColor);
+
+                    }
+                }
+            }
+            return newBitmap;
+        }
     }
 }
 
