@@ -61,7 +61,7 @@
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
             this.openFileToolStripMenuItem.Overflow = System.Windows.Forms.ToolStripItemOverflow.AsNeeded;
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.openFileToolStripMenuItem.Text = "Open file";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
@@ -70,6 +70,7 @@
             this.binaryOperationsToolStripMenuItem.Name = "binaryOperationsToolStripMenuItem";
             this.binaryOperationsToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
             this.binaryOperationsToolStripMenuItem.Text = "Binary Operations";
+            this.binaryOperationsToolStripMenuItem.Click += new System.EventHandler(this.binaryOperationsToolStripMenuItem_Click);
             // 
             // aboutProgramToolStripMenuItem
             // 

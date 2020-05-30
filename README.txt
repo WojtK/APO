@@ -28,13 +28,12 @@ Poprawione błędy z Lab 1 i 2:
 -Pola wprowadzania wartości progowania zostały zabezpieczone przed wprowadzaniem np ciągu znaków
 
 Główne:
--Redukcja poziomów szarości - gray levels reduction
 -Operacje dwuargumentowe:
 a)Add
 b)Blend
 c)AND
 d)OR
 e)XOR
-f)NOT
+f)NOT W przypadku operacji NOT nie wyświetla się wynik w oknie Result
 Dodatkowe:
 -Dodano okno "About program" zawierające informacje o autorze programu itp

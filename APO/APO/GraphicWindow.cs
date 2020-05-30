@@ -286,47 +286,8 @@ namespace APO
             PosterizeWindow posterizeWindow = new PosterizeWindow(this);
             posterizeWindow.Show();
             this.Close();
-        }
-
-        private void grayLevelsReductionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PictureBox.Image = Utility.Reduction((Bitmap)PictureBox.Image, (int)GrayLevelsNumericUpDown.Value);
-            Dictionary<Color, int> map = Utility.HistogramMap((Bitmap)PictureBox.Image);
-
-            if (Gray)
-            {
-                int[] GrayLut = Utility.HistogramLUT(map);
-                GraphicWindowChart.Series.Clear();
-                GraphicWindowChart.Series.Add("Gray");
-                GraphicWindowChart.Series["Gray"].Color = Color.Gray;
-                for (int i = 0; i < GrayLut.Length; i++)
-                {
-                    this.GraphicWindowChart.Series["Gray"].Points.AddXY(i, GrayLut[i]);
-                }
-            }
-            if (RGB)
-            {
-                int[] RedLut = Utility.HistogramLUT(map, "red");
-                int[] GreenLut = Utility.HistogramLUT(map, "green");
-                int[] BlueLut = Utility.HistogramLUT(map, "blue");
-
-                GraphicWindowChart.Series.Clear();
-                GraphicWindowChart.Series.Add("Red");
-                GraphicWindowChart.Series.Add("Blue");
-                GraphicWindowChart.Series.Add("Green");
-                GraphicWindowChart.Series["Red"].Color = Color.Red;
-                GraphicWindowChart.Series["Blue"].Color = Color.Blue;
-                GraphicWindowChart.Series["Green"].Color = Color.Green;
-
-                for (int i = 0; i < RedLut.Length; i++)
-                {
-                    this.GraphicWindowChart.Series["Red"].Points.AddXY(i, RedLut[i]);
-                    this.GraphicWindowChart.Series["Green"].Points.AddXY(i, GreenLut[i]);
-                    this.GraphicWindowChart.Series["Blue"].Points.AddXY(i, BlueLut[i]);
-                }
-
-            }
-        }
+        }      
+       
     }
 }
 

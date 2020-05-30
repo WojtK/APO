@@ -38,5 +38,11 @@ namespace APO
             About_programWindow info = new About_programWindow();
             info.Show();
         }
+
+        private void binaryOperationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BinaryOperationsWindow BinaryWindow = new BinaryOperationsWindow();
+            BinaryWindow.Show();
+        }
     }
 }
