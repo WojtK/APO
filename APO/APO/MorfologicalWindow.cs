@@ -79,6 +79,8 @@ namespace APO
                 Bitmap bitmap = (Bitmap)MorfologicalPictureBox.Image;
                 this.picture = bitmap.ToImage<Bgra, byte>();
                 Utility.Histogram(MorfologicalChart, (Bitmap)MorfologicalPictureBox.Image);
+                undoToolStripMenuItem.Enabled = true;
+                resetToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -121,6 +123,7 @@ namespace APO
                 ErodeButton.Enabled = true;
                 DilateButton.Enabled = true;
                 undoToolStripMenuItem.Enabled = true;
+                resetToolStripMenuItem.Enabled = true;
             }
             catch
             {
@@ -260,6 +263,7 @@ namespace APO
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MorfologicalPictureBox.Image = defaultpicture.ToBitmap();
+            Utility.Histogram(MorfologicalChart, (Bitmap)MorfologicalPictureBox.Image);
         }
     }
 }
